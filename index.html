@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DuckDuck Portal</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f2f2f2;
+  }
+  .search-container {
+    text-align: center;
+  }
+  input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-left: 5px;
+  }
+</style>
+</head>
+<body>
+  <div class="search-container">
+    <h1>DuckDuck Portal</h1>
+    <form onsubmit="searchDuckDuckGo(event)">
+      <input type="text" id="query" placeholder="Search DuckDuckGo..." required>
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+<script>
+  function searchDuckDuckGo(e) {
+    e.preventDefault();
+    const query = document.getElementById('query').value.trim();
+    if (!query) return;
+    const url = 'https://duckduckgo.com/?q=' + encodeURIComponent(query);
+    window.location.href = url;
+  }
+</script>
+</body>
+</html>
